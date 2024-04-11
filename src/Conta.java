@@ -2,11 +2,11 @@ public class Conta {
 
     Cliente donoConta = new Cliente();
 
-    double saldo;
-    double limite;
-    int numero;
-    String agencia;
-    double valor;
+    private double saldo;
+    private double limite;
+    private int numero;
+    private String agencia;
+    public double valor;
 
     boolean depositar (double valor) {
         if (valor > 0.0 && (saldo+valor) <= limite) {
@@ -34,5 +34,35 @@ public class Conta {
         System.out.println("Limite: " +limite);
 
         System.out.println();
+    }
+
+    //getters
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public double getLimite(){
+        return limite;
+    }
+
+    public int getNumero(){
+        return numero;
+    }
+
+    public String getAgencia(){
+        return agencia;
+    }
+
+    //setters
+    public void setLimite(double limite){
+        this.limite = limite;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
     }
 }

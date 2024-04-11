@@ -6,10 +6,9 @@ public class Main {
 
         Conta minhaConta = new Conta();
 
-        minhaConta.agencia = "222-3";
-        minhaConta.numero = 1234;
-        minhaConta.saldo = 15000;
-        minhaConta.limite = 25000;
+        minhaConta.setAgencia("222-3");
+        minhaConta.setNumero(123);
+        minhaConta.setLimite(25000);
 
         int executar;
         int times = 0;

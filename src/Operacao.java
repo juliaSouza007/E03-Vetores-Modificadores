@@ -12,13 +12,13 @@ import java.util.Date;
 public class Operacao {
 
     /* Data de realização da operação */
-    public Date data;
+    private Date data;
 
     /* Tipo da operação */
-    public char tipo;
+    private char tipo;
 
     /* Valor da operação */
-    public double valor;
+    private double valor;
 
     /**
      * Construtor. Inicializa uma nova instância da classe Operacao onde a data da operação é exatamente a data
@@ -36,6 +36,28 @@ public class Operacao {
         this.tipo = tipo;
         this.valor = valor;
         data = new Date();
+    }
+
+    //getters
+    public Date getData(){
+        return data;
+    }
+
+    public char getTipo(){
+        return tipo;
+    }
+
+    public double getValor(){
+        return valor;
+    }
+
+    //setters
+    public void setTipo(char tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
 
