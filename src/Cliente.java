@@ -7,33 +7,13 @@ public class Cliente {
     private String endereco;
     private int idade;
     private char sexo;
+    private double limite;
+    private int numero;
+    private String agencia;
+
+    public static int totalDeContas;
 
     Scanner input = new Scanner(System.in);
-
-    void cadastrarCliente(){
-        System.out.print("Nome: ");
-        nome = input.nextLine();
-
-        System.out.print("CPF: ");
-        cpf = input.nextLine();
-
-        System.out.print("Endereco: ");
-        endereco = input.nextLine();
-
-        System.out.print("Idade: ");
-        idade = input.nextInt();
-
-        System.out.print("Sexo(m ou f): ");
-        sexo = input.next().charAt(0);
-    }
-
-    void imprimirDados(){
-        System.out.println("Nome: " +nome);
-        System.out.println("CPF: " +cpf);
-        System.out.println("Endereco: " +endereco);
-        System.out.println("Idade: " +idade);
-        System.out.println("Sexo: " +sexo+ "\n");
-    }
 
     //getters
     public String getNome(){
@@ -56,6 +36,19 @@ public class Cliente {
         return sexo;
     }
 
+    public double getLimite(){
+        return limite;
+    }
+
+    public int getNumero(){
+        return numero;
+    }
+
+    public String getAgencia(){
+        return agencia;
+    }
+
+
     //setters
     public void setNome(String nome){
         this.nome = nome;
@@ -77,6 +70,17 @@ public class Cliente {
         this.sexo = sexo;
     }
 
+    public void setLimite(double limite){
+        this.limite = limite;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setAgencia(String agencia) {
+        this.agencia = agencia;
+    }
 }
 
 

@@ -3,7 +3,6 @@
  *
  * @author João Eduardo Montandon
  */
-
 import java.util.Date;
 
 /**
@@ -19,6 +18,9 @@ public class Operacao {
 
     /* Valor da operação */
     private double valor;
+
+    /* Quantidade de operações*/
+    public static int totalOperacoes = 0;
 
     /**
      * Construtor. Inicializa uma nova instância da classe Operacao onde a data da operação é exatamente a data
@@ -36,6 +38,14 @@ public class Operacao {
         this.tipo = tipo;
         this.valor = valor;
         data = new Date();
+
+        this.totalOperacoes++;
+    }
+
+    public void operacoesDados() {
+        System.out.println("Tipo de operacao: " +getTipo());
+        System.out.println("Valor da operacao: " +getValor());
+        System.out.println("Data da operacao: " +getData());
     }
 
     //getters
@@ -53,12 +63,12 @@ public class Operacao {
 
     //setters
     public void setTipo(char tipo) {
-        this.tipo = tipo;
+        if (tipo == 's' || tipo == 'd') {
+            this.tipo = tipo;
+        }
     }
 
     public void setValor(double valor) {
         this.valor = valor;
     }
-
-
 }

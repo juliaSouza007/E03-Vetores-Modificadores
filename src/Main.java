@@ -2,97 +2,39 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Operacao[] operacoesDados = new Operacao[1000];
 
-        Conta minhaConta = new Conta();
+        Conta c1 = new Conta("Julia", "155866", "223-3", 123, 16, "rua das engracadinhas", 'f', 30000);
+        Conta c2 = new Conta("Mariana", "266788", "445-5", 321, 16, "rua das princesas", 'f', 20000);
+        Conta c3 = new Conta("Felipe", "388900", "667-7", 111, 2, "rua dos nenens", 'm', 2000);
 
-        minhaConta.setAgencia("222-3");
-        minhaConta.setNumero(123);
-        minhaConta.setLimite(25000);
+        System.out.println("BANCO JMSZ _ IMPRIMINDO IMPORMACOES DOS CLIENTES");
+        System.out.println("Conta 1");
+        c1.imprimirDados();
+        System.out.println("Conta 2");
+        c2.imprimirDados();
+        System.out.println("Conta 3");
+        c3.imprimirDados();
 
-        int executar;
-        int times = 0;
+        System.out.println("<<<REALIZANDO OPERACOES>>>");
+        c1.depositar(2000);
+        c2.depositar(5000);
+        c3.depositar(200);
 
-        Scanner input = new Scanner(System.in);
+        c1.sacar(200);
+        c2.sacar(500);
+        c3.sacar(2000);
 
-        System.out.println("SITE OFICIAL BANCO JMS\n Cadastrar Cliente:");
-        minhaConta.donoConta.cadastrarCliente();
+        System.out.println("Imprimindo extrato...");
+        System.out.println("Conta 1");
+        c1.extrato();
+        System.out.println("Conta 2");
+        c2.extrato();
+        System.out.println("Conta 3");
+        c3.extrato();
 
-        do {
-            System.out.println("\n\nSITE OFICIAL BANCO JMS\n O que deseja fazer?");
-            System.out.println("[1] Deposito\n[2] Saque\n[3] Infos Pessoais\n[4] Operacoes\n[5] Extrato\n[0] Sair");
+        System.out.println("\nImprimindo a media...");
+        int media = Operacao.totalOperacoes/Conta.totalContas;
 
-            executar = input.nextInt();
-
-            switch (executar) {
-                case 1:
-                    int valorDep;
-                    char d='d';
-
-                    System.out.println("\nQual o valor do deposito?");
-                    valorDep = input.nextInt();
-
-                    boolean depositoRealizado = minhaConta.depositar(valorDep);
-
-                    if (depositoRealizado) {
-                        operacoesDados[times] = new Operacao(d, valorDep);
-                        System.out.println("Deposito realizado com sucesso!");
-                        System.out.println("Saldo atual: " +minhaConta.saldo);
-                    } else {
-                        System.out.println("Erro ao depositar...");
-                    }
-                    break;
-
-                case 2:
-                    int valorSaq;
-                    char s='s';
-
-                    System.out.println("\nQual o valor do saque?");
-                    valorSaq = input.nextInt();
-
-                    boolean saqueRealizado = minhaConta.sacar(valorSaq);
-
-                    if (saqueRealizado) {
-                        operacoesDados[times] = new Operacao(s, valorSaq);
-                        System.out.println("Saque realizado com sucesso!");
-                        System.out.println("Saldo atual: " +minhaConta.saldo);
-                    } else {
-                        System.out.println("Erro ao sacar...");
-                    }
-                    break;
-
-                case 3:
-                    System.out.println("\nImprimindo informacoes:");
-                    minhaConta.imprimir();
-                    break;
-
-                case 4:
-                    System.out.println("\n Imprimindo operacoes realizadas:");
-
-                    for (int i = 0; i < times; i++){
-                        System.out.println("Tipo de operacao: " +operacoesDados[i].tipo);
-                        System.out.println("Valor da operacao: " +operacoesDados[i].valor);
-                        System.out.println("Data da operacao: " +operacoesDados[i].data);
-                    }
-
-                    break;
-
-                case 5:
-                    System.out.println("\n Imprimindo extrato da conta");
-
-                    for (int i = 0; i < times; i++){
-                        System.out.println(operacoesDados[i].data+"\t"+operacoesDados[i].tipo+"\t\t"+operacoesDados[i].valor);
-                    }
-                    break;
-
-                case 0:
-                    break;
-            }
-
-            times++;
-
-            if (times == 1000) executar = 0;
-
-        } while (executar!=0);
+        System.out.println("Media: " +media);
     }
 }
